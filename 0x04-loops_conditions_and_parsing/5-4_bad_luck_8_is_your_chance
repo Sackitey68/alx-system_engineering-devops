@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Loops from 1 to 10 and displays:
+# "bad luck" for the 4th iteration
+# "good luck" for the 8th iteration
+# "Best School" for all other iterations
+
+step=0
+
+while [ $step -lt 10 ]
+do
+  if [ $step -eq 3 ]
+  then
+    echo "bad luck"
+  elif [ $step -eq 7 ]
+  then
+    echo "good luck"
+  else
+    echo "Best School"
+  fi
+  (( step++ ))
+done
