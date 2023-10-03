@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# configure haproxy load palancer
+sudo apt-get update
+sudo apt-get -y upgrade
+sudo apt-get -y install haproxy
+echo "\
+frontend haproxy_balancer
+    bind *:80
+    mode http
+    default_backend webservers
+
+backend webservers
+    balance roundrobin
+    server 336956-web-01 54.90.62.93:80 check
+    server 336956-web-02 52.87.231.191:80 check
+" | sudo tee -a /etc/haproxy/haproxy.cfg > /dev/null
+sudo service haproxy restart
