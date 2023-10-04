@@ -11,11 +11,11 @@ server_config=\
 frontend  sackitey-frontend
         bind *:80
         mode http
-        default_backend ehoneah-backend
+        default_backend sackitey-backend
 backend sackitey-backend
         balance roundrobin
-        server 63210-web-01 54.90.62.93:80 check
-        server 63210-web-02 52.87.231.191:80 check
+        server 228361-web-01 54.90.62.93:80 check
+        server 228361-web-02 52.87.231.191:80 check
 "
 echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
 
