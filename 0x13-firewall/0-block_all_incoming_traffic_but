@@ -1,25 +1,10 @@
-# Check the status of ufw to make sure it is active 
+#!/usr/bin/env bash
+# commands used install ufw and enable ports 22, 443, 8080
 
-sudo ufw status
-
-# If ufw is not active, enable it by
-suo ufw enable
-
-# Set the default incoming policy to "deny" to block all incoming traffic by
-sudo ufw default deny incomming
-
-# Set the default outgoing policy to "allow" to allow  all outgoing traffic by 
-sudo ufw default allow outgoing
-
-# Allow incoming traffic on TCP ports 22, 443, and 80 by
-
-sudo ufw allow 22/tcp
-sudo ufw allow 443/tcp
-sudo ufw allow 80/tcp
-
-# Verify that the rules have been added by
-
-sudo ufw show added
-
-# Lastly, enable ufw by
-sudo ufw enable
+sudo apt-get update
+sudo apt-get install ufw
+sudo ufw default deny incoming
+sudo ufw allow 22
+sudo ufw allow 443
+sudo ufw allow 8080
+sudo ufw -y enable
